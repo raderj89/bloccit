@@ -1,2 +1,37 @@
-<h1>Posts#edit</h1>
-<p>Find me in app/views/posts/edit.html.erb</p>
+<h1>Edit Post</h1>
+
+<div class="row">
+  <div class="span6">
+    <p>Guidelines for new posts:</p>
+    <ul>
+      <li>You do not talk about fight club.</li>
+      <li>You DO NOT talk about fight club.</li>
+      <li>If someone says "stop" or goes limp, taps out the fight is over.</li>
+      <li>Only two guys to a fight.</li>
+      <li>One fight at a time.</li>
+      <li>No shirts, no shoes.</li>
+      <li>Fights will go on as long as they have to.</li>
+      <li>If this is your first night at fight club, you have to fight.</li>
+    </ul>
+  </div>
+  <div class="span6">
+    <%= form_for @post, html: { class: 'form-horizontal' } do |f| %>
+      <div class="control-group">
+        <%= f.label :title, class: 'control-label' %>
+        <div class="controls">
+          <%= f.text_field :title %>
+        </div>
+      </div>
+      <div class="control-group">
+        <%= f.label :body %>
+        <div class="controls">
+          <%= f.text_area :body, rows: 8 %>
+        </div>
+        <div class="control-group">
+          <div class="controls">
+            <%= f.submit "Save", class: 'btn btn-primary' %>
+          </div>
+        </div>
+    <% end %>
+  </div>
+</div>
