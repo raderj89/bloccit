@@ -17,7 +17,7 @@
 </div>
 <div class="row">
   <div class="span6">
-    <%= form_for @post, html: { class: 'form-horizontal' } do |f| %>
+    <%= form_for [@topic, @post], html: { class: 'form-horizontal' } do |f| %>
       <div class="control-group">
         <%= f.label :title, class: 'control-label' %>
         <div class="controls">
