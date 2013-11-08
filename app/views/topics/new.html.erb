@@ -1,0 +1,30 @@
+<h1>New Topic</h1>
+
+<div class="row">
+  <div class="span6">
+    <p>Topic guidelines</p>
+    <ul>
+      <li>Blah</li>
+      <li>Blah</li>
+      <li>Blah</li>
+    </ul>
+  </div>
+</div>
+<div class="row">
+  <div class="span6">
+    <%= form_for @topic do |f| %>
+      
+      <%= f.label :name, class: 'control-label' %>
+      <%= f.text_field :name %>
+
+      <%= f.label :description, class: 'control-label' %>
+      <%= f.text_area :description, rows: 8 %>
+
+      <%= f.label :public, class: 'checkbox' do %>
+      <%= f.check_box :public %>
+      <% end %>
+
+      <%= f.submit "Save", class: 'btn' %>
+    <% end %>
+  </div>
+</div>
