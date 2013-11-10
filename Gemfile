@@ -5,6 +5,7 @@ gem 'jquery-rails'
 gem 'devise'
 gem 'cancan'
 gem 'better_errors'
+gem 'redcarpet'
 
 group :production do
   gem 'pg'

@@ -1,7 +1,9 @@
-<h1><%= @post.title %></h1>
+<h1><%= markdown @post.title %></h1>
 
 <% if can? :edit, @post %>
   <%= link_to "Edit", edit_topic_post_path(@topic, @post), class: 'btn btn-mini' %>
 <% end %>
 
-<p><%= @post.body %></p>
+<div class="span8">
+  <p><%= markdown @post.body %></p>
+</div>
