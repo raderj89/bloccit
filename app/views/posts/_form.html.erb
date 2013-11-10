@@ -23,6 +23,14 @@
   </div>
 <% end %>
 </div>
+<%= control_group_tag(post.errors[:image]) do %>
+<div class="control-group">
+  <%= f.label :image, class: 'control-label' %>
+  <div class="controls">
+    <%= f.file_field :image %>
+  </div>
+<% end %>
+</div>
 <div class="control-group">
   <div class="controls">
     <%= f.submit "Save", class: 'btn btn-primary' %>

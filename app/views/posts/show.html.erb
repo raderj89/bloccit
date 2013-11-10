@@ -7,6 +7,9 @@
       submitted <%= time_ago_in_words(@post.created_at) %> ago by 
       <%= @post.user.name %>
     </small>
+    <div class="post-image">
+      <%= image_tag(@post.image) if @post.image? %>
+    </div>
     <p><%= markdown @post.body %></p>
   </div>
   <div class="span4">
