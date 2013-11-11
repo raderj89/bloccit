@@ -18,3 +18,16 @@
     <% end %>
   </div>
 </div>
+
+<div class="row">
+  <h2>Comments</h2>
+
+  <% if can? :create, Comment %>
+  <%= render partial: 'comments/form', locals: { topic: @topic, post: @post, comment: @comment } %>
+  <% end %>
+
+  <hr>
+
+  <%= render @comments %>
+  
+</div>
