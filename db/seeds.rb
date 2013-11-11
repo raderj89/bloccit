@@ -1,14 +1,14 @@
 require 'faker'
 
 topics = []
-15.times do
+100.times do
   topics << Topic.create(
     name: Faker::Lorem.words(rand(1..10)).join(" "),
     description: Faker::Lorem.paragraph(rand(1..4))
     )
 end
 
-rand(4..10).times do
+rand(10..50).times do
   password = Faker::Lorem.characters(10)
   u = User.new(
     name: Faker::Name.name,
@@ -18,28 +18,35 @@ rand(4..10).times do
   u.skip_confirmation!
   u.save
 
-rand(5..12).times do
-  topic = topics.first
-  p = u.posts.create(
-    topic: topic,
-    title: Faker::Lorem.words(rand(1..10)).join(" "),
-    body: Faker::Lorem.paragraphs(rand(1..4)).join("\n")
-    )
-  topics.rotate!
-end
-
-rand(5..12).times do
-  p = u.posts.create(
-    title: Faker::Lorem.words(rand(1..10)).join(" "),
-    body: Faker::Lorem.paragraphs(rand(1..4)).join("\n"))
-  p.update_attribute(:created_at, Time.now - rand(600..31536000))
-
-  rand(3..7).times do
-    p.comments.create(
-      body: Faker::Lorem.paragraphs(rand(1..2)).join("\n"))
+  rand(12..50).times do
+    topic = topics.first
+    p = u.posts.create(
+      topic: topic,
+      title: Faker::Lorem.words(rand(1..10)).join(" "),
+      body: Faker::Lorem.paragraphs(rand(1..4)).join("\n")
+      )
+    p.update_attribute(:created_at, Time.now - rand(600..31536000))
+    rand(3..7).times do
+      p.comments.create(
+        body: Faker::Lorem.paragraphs(rand(1..2)).join("\n"))
     end  
+    topics.rotate!
   end
 end
+
+# rand(5..12).times do
+#   p = u.posts.create(
+#     title: Faker::Lorem.words(rand(1..10)).join(" "),
+#     body: Faker::Lorem.paragraphs(rand(1..4)).join("\n")
+#     )
+#   p.update_attribute(:created_at, Time.now - rand(600..31536000))
+
+#   rand(3..7).times do
+#     p.comments.create(
+#       body: Faker::Lorem.paragraphs(rand(1..2)).join("\n"))
+#     end  
+#   end
+# end
 
 u = User.new(
   name: 'Admin User',
