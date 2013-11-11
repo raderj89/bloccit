@@ -28,7 +28,7 @@ rand(12..20).times do
     p.update_attribute(:created_at, Time.now - rand(600..31536000))
 
   rand(3..7).times do
-    post = topic.posts.first
+    post = topic.posts.sample
     c = post.comments.create(
         body: Faker::Lorem.paragraphs(rand(1..2)).join("\n"))
     c.update_attribute(:created_at, Time.now - rand(600..31536000))
