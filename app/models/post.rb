@@ -9,6 +9,8 @@ class Post < ActiveRecord::Base
 
   after_create :create_vote
 
+  self.per_page = 5
+
   mount_uploader :image, ImageUploader
   
   def up_votes

@@ -3,9 +3,9 @@
 <div class="row">
   <div class="span8">
     <p class="lead"><%= @topic.description %></p>
-    <div class="post">
+    <div class="posts">
     <%= render :partial => 'shared/posts', :locals => {topic: @topic, posts:  @posts } %>
-    <%= link_to 'Load More Posts', topic_posts_path(:page => @topic.posts.next_page), :class => 'load-more-posts', :remote => true if @topic.posts.next_page %>
+    <%= link_to 'Load More Posts', topic_path(page: @posts.next_page), :class => 'load-more-posts', :remote => true if @posts.next_page %>
     </div>
     <%#= will_paginate @posts %>
   </div>
