@@ -1,4 +1,12 @@
+$bodyBackground: #2E0F25;
+$linkColor: #0D777D;
+$textColor: #ccc;
+
 @import "bootstrap";
+
+.hero-unit {
+  background: black;
+}
 
 .user-info {
   margin-top: 9px;
@@ -6,4 +14,19 @@
 
 .nav {
   margin-top: 5px;
+}
+
+/* VOTE & FAVORITE STYLES */
+
+.vote-arrows {
+  width: 40px;
+  text-align: center;
+}
+
+.voted {
+  opacity: 0.5;
+}
+
+.favorite {
+  margin-top: 20px;
 }
