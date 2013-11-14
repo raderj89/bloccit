@@ -11,6 +11,6 @@ class FavoriteMailer < ActionMailer::Base
     headers["In-Reply-To"] = "<post/#{@post.id}@rader-bloccit.example>"
     headers["References"] = "<post/#{@post.id}@rader-bloccit.example>"
     
-    mail(to: user.email, subject: "New comment on #{post.title}")
+    mail(to: @user.email, subject: "New comment on #{@post.title}")
   end
 end
