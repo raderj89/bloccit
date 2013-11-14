@@ -7,7 +7,6 @@
     <%= render :partial => 'shared/posts', :locals => {topic: @topic, posts:  @posts } %>
     <%= link_to 'Load More Posts', topic_path(page: @posts.next_page), :class => 'load-more-posts', :remote => true if @posts.next_page %>
     </div>
-    <%#= will_paginate @posts %>
   </div>
   <div class="span4">
     <% if can? :create, Post %>
