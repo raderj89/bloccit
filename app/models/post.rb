@@ -8,6 +8,8 @@ class Post < ActiveRecord::Base
 
   default_scope order('rank DESC')
 
+  scope :visible_to, lambda { |user| user ? scoped : joins(:topic).where('topics.public' => true) }
+
   after_create :create_vote
 
   self.per_page = 5

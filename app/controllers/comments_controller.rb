@@ -25,10 +25,10 @@ class CommentsController < ApplicationController
     authorize! :destroy, @comment, message: "You can only delete your comments."
     if @comment.destroy
       flash[:notice] = "Comment successfully deleted."
-      redirect_to [@topic, @post]
+      redirect_to :back
     else
       flash[:error] = "There was an error deleting the comment."
-      redirect_to [@topic, @post]
+      redirect_to :back
     end
   end
 

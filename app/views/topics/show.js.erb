@@ -1,5 +1,5 @@
-var partial = '<%= escape_javascript(render partial: 'shared/posts', :locals => { topic: @topic, posts: @posts }) %>';
-var path = '<%="#{topic_path page: @posts.next_page }".html_safe %>';
+var partial = '<%= escape_javascript(render @posts) %>';
+var path = '<%="#{topic_path page: @posts.next_page }" %>';
 
 $('a.load-more-posts').before(partial);
 $('a.load-more-posts').attr('href', path);

@@ -1,0 +1,51 @@
+<div class="row">
+  <div class="span12">
+    <div class="media">
+      <% if @user.avatar? %>
+        <%= image_tag @user.avatar.url, class: 'pull-left' %>
+      <% end %>
+      <div class="media-body">
+        <h2 class="media-heading"><%= @user.name %></h2>
+        <small>
+          <%= pluralize(@user.posts.count, 'post') %>,
+          <%= pluralize(@user.comments.count, 'comment') %>
+        </small>
+      </div>
+    </div>
+  </div>
+</div>
+
+<br>
+
+<div class="row">
+  <div class="tabbable tabs-left">
+    <ul class="nav nav-tabs">
+      <li class="active"><a href="#posts" data-toggle="tab">Posts</a></li>
+      <li><a href="#comments" data-toggle="tab">Comments</a></li>
+    </ul>
+    <div class="tab-content">
+      <div class="tab-pane active" id="posts">
+        <%= render @posts %>
+      </div>
+      <div class="tab-pane" id="comments">
+        <% @user.comments.each do |comment| %>
+        Comments on <%= link_to comment.post.title, [comment.post.topic, comment.post] %>
+        <br>
+        <br>
+        <%= link_to '#', class: 'pull-left' do %>
+          <%= image_tag(comment.user.avatar.small.url) if comment.user.avatar? %>
+        <% end %>
+        <div class="media-body">
+        <p><%= comment.body %></p>
+        <small>
+          <% if can? :destroy, comment %>
+            <%= link_to "Delete Comment", comment_url_helper(comment), method: :delete, class: 'btn btn-primary btn-mini btn-danger' %>
+          <% end %>
+          <hr>
+        </small>
+        <br>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
