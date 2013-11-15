@@ -13,13 +13,9 @@ gem 'figaro'
 gem 'will_paginate', '~> 3.0'
 gem 'omniauth-facebook'
 gem 'unf'
-
-group :production do
-  gem 'pg'
-end
+gem 'pg'
 
 group :development do
-  gem 'sqlite3'
   gem 'faker'
   gem 'pry-rails'
 end
