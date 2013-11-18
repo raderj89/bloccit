@@ -28,18 +28,18 @@
   </div>
 </div>
 
-<hr>
-
-<div class="row">
-  <div class="span12">
-
-  <h2>Comments</h2>
-
   <% if can? :create, Comment %>
-  <%= render partial: 'comments/form', locals: { topic: @topic, post: @post, comment: @comment } %>
+    <a href="#" class="js-show-hide" data-selector="js-new-comment">Add Comment</a>
+    <br>
+    <div class="js-new-comment hide">
+      <h4>New Comment</h4>
+        <%= render partial: 'comments/form', locals: { topic: @topic, post: @post, comment: @comment } %>
+    </div>
   <% end %>
 
   <hr>
+
+  <h1>Comments</h1>
 
   <%= render partial: 'comments/comment', collection: @comments %>
 
