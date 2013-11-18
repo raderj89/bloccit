@@ -19,7 +19,6 @@
 $(document).ready(function() {
   $(".js-show-hide").click(function() {
     var selector = "." + $(this).attr('data-selector');
-    console.log(selector);
     if ($(selector).is(":visible")) {
       $(selector).slideUp();
     }

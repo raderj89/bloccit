@@ -4,11 +4,12 @@
   <% end %>
   <div class="media-body">
   <p><%= comment.body %></p>
-  <small>
-    <p>submitted <%= time_ago_in_words(comment.created_at) %> ago by <%= link_to comment.user.name, comment.user %></p>
-    <% if can? :destroy, comment %>
-      <%= link_to "Delete Comment", comment_url_helper(comment), method: :delete, class: 'btn btn-primary btn-mini btn-danger' %>
-    <% end %>
-    <hr>
-  </small>
-  <% end %>
+    <small>
+      <p>submitted <%= time_ago_in_words(comment.created_at) %> ago by <%= link_to comment.user.name, comment.user %></p>
+      <% if can? :destroy, comment %>
+        <%= link_to "Delete Comment", comment_url_helper(comment), method: :delete, class: 'btn btn-primary btn-mini btn-danger', remote: true %>
+      <% end %>
+      <hr>
+    </small>
+  </div>
+<% end %>
