@@ -24,6 +24,7 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'guard-rspec', '1.2.1'
   gem 'factory_girl_rails', '~> 4.0'
+  gem 'database_cleaner'
 end
 
 group :test do
