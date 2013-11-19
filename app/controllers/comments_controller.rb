@@ -8,13 +8,13 @@ class CommentsController < ApplicationController
     @comment = current_user.comments.build(params[:comment])
     @comment.post = @post
     @new_comment = Comment.new
-    
+
     authorize! :create, @comment, message: "You need be signed in to do that."
 
     if @comment.save
-      flash[:notice] = "Comment submitted."
+      flash.now[:notice] = "Comment submitted."
     else
-      flash[:error] = "There was an error saving your comment. Please try again."
+      flash.now[:error] = "There was an error saving your comment. Please try again."
     end
 
     respond_with(@comment) do |f|
@@ -30,9 +30,9 @@ class CommentsController < ApplicationController
     authorize! :destroy, @comment, message: "You can only delete your comments."
     
     if @comment.destroy
-      flash[:notice] = "Comment successfully deleted."
+      flash.now[:notice] = "Comment successfully deleted."
     else
-      flash[:error] = "There was an error deleting the comment."
+      flash.now[:error] = "There was an error deleting the comment."
     end
 
     respond_with(@comment) do |f|

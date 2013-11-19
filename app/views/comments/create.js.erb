@@ -6,3 +6,5 @@
 <% else %>
   $(".new_comment").replaceWith("<%= escape_javascript(render partial: 'comments/form', locals: { topic: @topic, post: @post, comment: @comment }) %>");
 <% end %>
+
+$("#notice").html("<%= escape_javascript(render :partial => 'layouts/flash' , :locals => { :flash => flash }).html_safe %>");

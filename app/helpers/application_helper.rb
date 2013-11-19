@@ -1,4 +1,16 @@
 module ApplicationHelper
+
+  def flash_class(type)
+    case type
+    when :alert
+      "alert-error"
+    when :notice
+      "alert-success"
+    else
+      ""
+    end
+  end
+  
   def control_group_tag(errors, &block)
     if errors.any?
       content_tag :div, capture(&block), class: 'control-group error'
