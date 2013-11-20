@@ -1,14 +1,21 @@
 class VotesController < ApplicationController
   before_filter :setup
+  respond_to :html, :js
 
   def up_vote
     update_vote(1)
-    redirect_to :back
+
+    respond_with(@vote) do |f|
+      f.html { redirect_to [@topic, @post]}
+    end
   end
 
   def down_vote
     update_vote(-1)
-    redirect_to :back
+    
+    respond_with(@vote) do |f|
+      f.html { redirect_to [@topic, @post]}
+    end
   end
 
   private

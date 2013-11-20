@@ -2,15 +2,15 @@
 <div class="vote-arrows pull-left">
   <div>
     <%= link_to " ",
-    topic_post_up_vote_path(topic, post),
+    topic_post_up_vote_path(topic, post), remote: true,
     class: "icon-chevron-up #{(current_user.voted(post) && current_user.voted(post).up_vote?) ? 'voted' : ''}" %>
   </div>
-  <div>
+  <div class="js-post-<%= post.id %>-points">
     <strong><%= post.points %></strong>
   </div>
   <div>
     <%= link_to " ",
-    topic_post_down_vote_path(topic, post),
+    topic_post_down_vote_path(topic, post), remote: true,
     class: "icon-chevron-down #{(current_user.voted(post) && current_user.voted(post).down_vote?) ? 'voted' : ''}" %>
   </div>
 </div>

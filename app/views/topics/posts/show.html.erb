@@ -3,11 +3,13 @@
     <%= render partial: 'votes/voter', locals: { topic: @topic, post: @post } %>
     <h1><%= markdown @post.title %></h1>
     <div>
+      <div class="js-post-points-count">
       <h3><%= pluralize(@post.points, 'point') %></h3>
       <small>
         <%= pluralize(@post.up_votes, 'up vote') %>, 
         <%= pluralize(@post.down_votes, 'down vote') %>
       </small>
+      </div>
     </div>
     <%= render partial: 'favorites/favorite', locals: { topic: @topic, post: @post } %>
     <small>
